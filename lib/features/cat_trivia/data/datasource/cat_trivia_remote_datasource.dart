@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+
 import '../modal/cat_trivia_model.dart';
 
 abstract class CatTriviaRemoteDatasource {
@@ -7,9 +8,9 @@ abstract class CatTriviaRemoteDatasource {
 }
 
 class CatTriviaRemoteDatasourceImpl extends CatTriviaRemoteDatasource {
-  final Dio _client = Dio();
+  final Dio _client;
 
-  CatTriviaRemoteDatasourceImpl();
+  CatTriviaRemoteDatasourceImpl(this._client);
 
   @override
   Future<CatTriviaModel> getCatTrivia() async {

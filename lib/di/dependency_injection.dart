@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -33,14 +34,14 @@ Future<void> init() async {
     () => CatTriviaLocalDataSourceImpl(),
   );
   di.registerLazySingleton(
-    () => CatTriviaRemoteDatasourceImpl(),
+    () => CatTriviaRemoteDatasourceImpl(di()),
   );
 
   di.registerLazySingleton<CatTriviaLocalDatasource>(
     () => CatTriviaLocalDataSourceImpl(),
   );
   di.registerLazySingleton<CatTriviaRemoteDatasource>(
-    () => CatTriviaRemoteDatasourceImpl(),
+    () => CatTriviaRemoteDatasourceImpl(di()),
   );
 
   ///Repositories
@@ -55,8 +56,7 @@ Future<void> init() async {
 
   ///Network
 
-  // di.registerLazySingleton<GraphQLClient>(
-  //     () => GraphQLClientGenerator().getClient());
+  di.registerSingleton<Dio>(Dio());
 
   /// Network Info
   di.registerLazySingleton(() => InternetConnectionChecker());
