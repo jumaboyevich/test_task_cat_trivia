@@ -17,14 +17,14 @@ class CatImage extends StatelessWidget {
           child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: Image.network(
-                'https://cataas.com/cat',
-                // loadingBuilder: (BuildContext context, Widget child,
-                //     ImageChunkEvent? loadingProgress) {
-                //   if (loadingProgress == null) return child;
-                //   return Center(
-                //     child: CircularProgressIndicator(),
-                //   );
-                // },
+                'https://cataas.com/cat?${DateTime.now().millisecondsSinceEpoch.toString()}',
+                loadingBuilder: (BuildContext context, Widget child,
+                    ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
               ))),
     );
   }

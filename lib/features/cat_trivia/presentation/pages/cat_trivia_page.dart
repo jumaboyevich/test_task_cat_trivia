@@ -48,41 +48,43 @@ class _CatTriviaPageState extends State<CatTriviaPage> {
           if (state is CatTriviaLoadedSuccess) {
             return RefreshIndicator(
                 onRefresh: () => _handleRefresh(),
-                child: Column(
-                  children: [
-                    CatImage(),
-                    Text(
-                      state.entity.text!,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6!
-                          .copyWith(color: Colors.black),
-                    ),
-                    const Divider(height: 10),
-                    Text(
-                      dateFormat(state.entity.createdAt!),
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6!
-                          .copyWith(color: Colors.black),
-                    ),
-                    ElevatedButton(
-                        onPressed: () {
-                          _handleRefresh();
-                        },
-                        child: Text('Upload Trivia')),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      CatTriviaHistoryPage.screen()));
-                        },
-                        child: Text('Cat Trivia History'))
-                  ],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      CatImage(),
+                      Text(
+                        state.entity.text!,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(color: Colors.black),
+                      ),
+                      const Divider(height: 10),
+                      Text(
+                        dateFormat(state.entity.createdAt!),
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(color: Colors.black),
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            _handleRefresh();
+                          },
+                          child: Text('Upload Trivia')),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        CatTriviaHistoryPage.screen()));
+                          },
+                          child: Text('Cat Trivia History'))
+                    ],
+                  ),
                 ));
           } else if (state is CatTriviaLoading) {
             return Center(
