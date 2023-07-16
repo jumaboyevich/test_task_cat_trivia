@@ -26,7 +26,7 @@ class CatTriviaModel {
   Map<String, dynamic> toJson() => _$CatTriviaModelToJson(this);
 }
 
-extension CountryModelX on CatTriviaModel {
+extension CatTriviaModelX on CatTriviaModel {
   CatTriviaEntity toEntity() =>
       CatTriviaEntity(text: text, createdAt: createdAt);
 }

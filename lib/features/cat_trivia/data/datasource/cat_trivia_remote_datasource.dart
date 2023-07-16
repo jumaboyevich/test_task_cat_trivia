@@ -20,9 +20,9 @@ class CatTriviaRemoteDatasourceImpl extends CatTriviaRemoteDatasource {
 
       final result = await _client.get(url, queryParameters: queryParameters);
 
-      // if (result.data == null) {
-      //   return [];
-      // }
+      if (result.data == null) {
+        return CatTriviaModel(text: '', createdAt: '');
+      }
 
       return CatTriviaModel.fromJson(result.data);
     } on Exception catch (exception) {

@@ -24,7 +24,7 @@ class CatTriviaLocalDataSourceImpl implements CatTriviaLocalDatasource {
   List<CatTriviaModel> getCatTriviaHistory() {
     final localData = _catTriviaBox.values;
     if (localData == null) {
-      throw ServerException();
+      throw CacheException();
     }
     return localData.toList();
   }
