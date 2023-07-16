@@ -6,7 +6,6 @@ import 'package:test_task_cat_trivia/features/cat_trivia/presentation/bloc/cat_t
 import '../../../../core/utils/app_constants.dart';
 import '../../../../di/dependency_injection.dart';
 import '../widgets/app_bar_history.dart';
-import '../widgets/country_shimmer_widget.dart';
 
 class CatTriviaHistoryPage extends StatefulWidget {
   const CatTriviaHistoryPage({super.key});
@@ -73,7 +72,7 @@ class _CatTriviaHistoryPageState extends State<CatTriviaHistoryPage> {
           }
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
-            child: CatTriviaShimmerWidget(),
+            child: Text('Ma\'lumot topilmadi'),
           );
         },
       ),

@@ -7,7 +7,6 @@ import 'package:test_task_cat_trivia/features/cat_trivia/presentation/widgets/ca
 import '../../../../core/utils/app_constants.dart';
 import '../../../../di/dependency_injection.dart';
 import '../widgets/app_bar.dart';
-import '../widgets/country_shimmer_widget.dart';
 import 'cat_trivia_history_page.dart';
 
 class CatTriviaPage extends StatefulWidget {
@@ -99,7 +98,7 @@ class _CatTriviaPageState extends State<CatTriviaPage> {
           }
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
-            child: CatTriviaShimmerWidget(),
+            child: Text('Ma\'lumot topilmadi'),
           );
         },
       ),

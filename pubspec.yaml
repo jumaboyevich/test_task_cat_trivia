@@ -125,3 +125,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+# git add .
+# git commit -m"Bugs was fixed"
+# git push
